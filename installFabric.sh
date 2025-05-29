@@ -4,6 +4,12 @@ sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install -y git curl docker.io docker-compose jq wget
 
+# Get the username from the script arguments
+USERNAME=$1
+
+# Add the user to the Docker group
+sudo usermod -aG docker $USERNAME
+
 # Install Go
 GO_VERSION="1.24.3"
 wget https://golang.org/dl/go${GO_VERSION}.linux-amd64.tar.gz
