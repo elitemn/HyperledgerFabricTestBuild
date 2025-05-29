@@ -116,9 +116,9 @@
         "typeHandlerVersion": "2.0",
         "settings": {
           "fileUris": [
-            "https://raw.githubusercontent.com/hyperledger/fabric/main/scripts/install-fabric.sh"
+            "https://raw.githubusercontent.com/elitemn/HyperledgerFabricTestBuild/refs/heads/main/installFabric.sh"
           ],
-          "commandToExecute": "bash install-fabric.sh"
+	  "commandToExecute": "[concat('bash installFabric.sh ', parameters('scriptUsername'))]"
         }
       }
     }
@@ -155,6 +155,12 @@
       "type": "secureString",
       "metadata": {
         "description": "Admin password for the virtual machine."
+      }
+    },
+    "scriptUsername": {
+      "type": "string",
+      "metadata": {
+        "description": "Username to be used in the script."
       }
     },
     "virtualNetworkName": {
