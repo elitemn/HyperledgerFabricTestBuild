@@ -1,6 +1,7 @@
 #!/bin/bash
 # Update and install prerequisites
 sudo apt-get update
+sudo apt-get upgrade
 sudo apt-get install -y git curl docker.io docker-compose jq
 
 # Install Go
