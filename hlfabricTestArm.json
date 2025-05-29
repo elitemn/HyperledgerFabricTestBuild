@@ -96,25 +96,26 @@
       }
     },
     {
-      "type": "Microsoft.Compute/virtualMachines/extensions",
-      "apiVersion": "2021-07-01",
-      "name": "installHyperledger",
-      "location": "[parameters('location')]",
-      "dependsOn": [
-        "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
+{
+  "type": "Microsoft.Compute/virtualMachines/extensions",
+  "apiVersion": "2021-07-01",
+  "name": "[concat(parameters('vmName'), '/installHyperledger')]",
+  "location": "[parameters('location')]",
+  "dependsOn": [
+    "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
+  ],
+  "properties": {
+    "publisher": "Microsoft.Azure.Extensions",
+    "type": "CustomScript",
+    "typeHandlerVersion": "2.0",
+    "settings": {
+      "fileUris": [
+        "https://raw.githubusercontent.com/hyperledger/fabric/main/scripts/install-fabric.sh"
       ],
-      "properties": {
-        "publisher": "Microsoft.Azure.Extensions",
-        "type": "CustomScript",
-        "typeHandlerVersion": "2.0",
-        "settings": {
-          "fileUris": [
-            "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/hyperledger-fabric-on-azure/scripts/install.sh"
-          ],
-          "commandToExecute": "bash install.sh"
-        }
-      }
+      "commandToExecute": "bash install.sh"
     }
+  }
+}
   ],
   "parameters": {
     "vmName": {
