@@ -2,13 +2,18 @@
 # Update and install prerequisites
 sudo apt-get update
 sudo apt-get upgrade
-sudo apt-get install -y git curl docker.io docker-compose jq wget
+sudo apt-get install -y git curl docker.io docker-compose jq
 
 # Get the username from the script arguments
-USERNAME=$1
+
+PRINCIPAL_ID=$1
+
+echo "Managed Identity Principal ID: $PRINCIPAL_ID"
+
 
 # Add the user to the Docker group
-sudo usermod -aG docker $USERNAME
+sudo usermod -aG docker $PRINCIPAL_ID
+/bin/bash
 
 # Install Go
 GO_VERSION="1.24.3"
