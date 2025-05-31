@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Update package list and install prerequisites
-sudo apt-get update
-sudo apt-get upgrade
+sudo apt-get update -y
+sudo apt-get upgrade -y
 sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
 
 # Install Docker
