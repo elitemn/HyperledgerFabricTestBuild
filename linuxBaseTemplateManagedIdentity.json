@@ -139,11 +139,5 @@
         }
       }
     }
-  ],
-  "outputs": {
-    "managedIdentityPrincipalId": {
-      "type": "string",
-      "value": "[reference(resourceId('Microsoft.Compute/virtualMachines', variables('vmName')), '2021-03-01').identity.managedserviceidentityprincipalId]"
-    }
-  }
+  ]
 }
