@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Update and install prerequisites
-sudo apt-get update
-sudo apt-get upgrade
+sudo apt-get update -y
+sudo apt-get upgrade -y
 sudo apt-get install -y git curl docker.io docker-compose jq
 
 # Get the username from the script arguments
@@ -36,7 +36,7 @@ sudo systemctl enable docker
 # Install Hyperledger Fabric binaries
 #curl -sSL https://bit.ly/2ysbOFE | bash -s
 mkdir -p $HOME/go/src/github.com/$PRINCIPAL_ID
-cd $HOME/go/src/github.com/$PRINCIPAL_ID
+#cd $HOME/go/src/github.com/$PRINCIPAL_ID
 curl -sSLO https://raw.githubusercontent.com/hyperledger/fabric/main/scripts/install-fabric.sh && chmod +x install-fabric.sh
 
 ./install-fabric.sh d s b
