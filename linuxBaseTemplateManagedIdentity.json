@@ -78,6 +78,9 @@
     },
     {
       "type": "Microsoft.Network/networkInterfaces",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', variables('vnetName'))]"
+      ],
       "apiVersion": "2021-02-01",
       "name": "[variables('nicName')]",
       "location": "[parameters('location')]",
