@@ -18,7 +18,7 @@
     },
     "adminUsername": {
       "type": "string",
-      "defaultValue": "concat([resourceGroup().location],'user'",
+      "defaultValue": "concat([resourceGroup().name],'user'",
       "metadata": {
         "description": "Admin username for the VM."
       }
@@ -35,6 +35,27 @@
       "metadata": {
         "description": "Size of the VM."
       }
+    },
+    "autoShutdownStatus": {
+      "type": "string",
+      "defaultValue": "Enabled",
+      "metadata": {
+        "description": "Status of the auto shutdown."
+      }
+    },
+    "autoShutdownTime": {
+      "type": "string",
+      "defaultValue": "1900",
+      "metadata": {
+        "description": "Time for auto shutdown in HHMM format."
+      }
+    },
+    "autoShutdownTimeZone": {
+      "type": "string",
+      "defaultValue": "Central Standard Time",
+      "metadata": {
+        "description": "Time zone for auto shutdown."
+      }
     }
   },
   "variables": {
@@ -43,10 +64,11 @@
     "publicIpName": "[concat(parameters('prefix'), '-pip-', variables('uniqueString'))]",
     "nicName": "[concat(parameters('prefix'), '-nic-', variables('uniqueString'))]",
     "vnetName": "[concat(parameters('prefix'), '-vnet-', variables('uniqueString'))]",
-    "subnetName": "default"
+    "subnetName": "default",
+    "roleName": "[concat(parameters('prefix'), '-role-', variables('uniqueString'))]"
   },
   "resources": [
-    {
+ {
       "type": "Microsoft.Network/publicIPAddresses",
       "apiVersion": "2021-02-01",
       "name": "[variables('publicIpName')]",
