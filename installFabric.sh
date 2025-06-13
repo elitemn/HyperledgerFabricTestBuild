@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#Download this file to endpoint using the following commands, this will parse and remove windows line endings (^M):
+#and edit file permissions to allow execution, wihtout the need to install a conversion utility. Fixes issue #5
+#wget -qO- "https://raw.githubusercontent.com/elitemn/HyperledgerFabricTestBuild/refs/heads/main/installFabric.sh" | tr -d '\r' > installFabric.sh
+
 # Update package list and install prerequisites
 sudo apt-get update -y
 sudo apt-get upgrade -y
