@@ -36,6 +36,6 @@ go version
 # Install Hyperledger Fabric test network
 mkdir -p $HOME/go/src/github.com/$(whoami)
 cd $HOME/go/src/github.com/$(whoami)
-curl -sSLO https://raw.githubusercontent.com/hyperledger/fabric/main/scripts/install-fabric.sh && chmod +x install-fabric.shcurl -sSL https://raw.githubusercontent.com/hyperledger/fabric/main/scripts/install-fabric.sh | bash -s
+curl -sSLO https://raw.githubusercontent.com/hyperledger/fabric/main/scripts/install-fabric.sh && chmod +x install-fabric.sh
 ./install-fabric.sh docker samples binary
 sudo reboot
