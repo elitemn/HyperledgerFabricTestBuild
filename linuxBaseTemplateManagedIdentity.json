@@ -4,7 +4,7 @@
   "parameters": {
     "prefix": {
       "type": "string",
-      "defaultValue": "[resourceGroup().location]",
+      "defaultValue": "[resourceGroup().name]",
       "metadata": {
         "description": "Prefix for resource names."
       }
@@ -14,13 +14,6 @@
       "defaultValue": "[resourceGroup().location]",
       "metadata": {
         "description": "Location for all resources."
-      }
-    },
-    "adminUsername": {
-      "type": "string",
-      "defaultValue": "concat([resourceGroup().name],'user'",
-      "metadata": {
-        "description": "Admin username for the VM."
       }
     },
     "adminPassword": {
@@ -65,7 +58,8 @@
     "nicName": "[concat(parameters('prefix'), '-nic-', variables('uniqueString'))]",
     "vnetName": "[concat(parameters('prefix'), '-vnet-', variables('uniqueString'))]",
     "subnetName": "default",
-    "roleName": "[concat(parameters('prefix'), '-role-', variables('uniqueString'))]"
+    "roleName": "[concat(parameters('prefix'), '-role-', variables('uniqueString'))]",
+    "adminUserName": "[concat(parameters('prefix'), 'user'))]"
   },
   "resources": [
  {
@@ -141,7 +135,7 @@
         },
         "osProfile": {
           "computerName": "[variables('vmName')]",
-          "adminUsername": "[parameters('adminUsername')]",
+          "adminUsername": "[variables('adminUsername')]",
           "adminPassword": "[parameters('adminPassword')]"
         },
         "networkProfile": {
