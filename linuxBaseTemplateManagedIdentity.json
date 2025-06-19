@@ -59,7 +59,7 @@
     "vnetName": "[concat(parameters('prefix'), '-vnet-', variables('uniqueString'))]",
     "subnetName": "default",
     "roleName": "[concat(parameters('prefix'), '-role-', variables('uniqueString'))]",
-    "adminUserName": "[concat(parameters('prefix'), 'user'))]"
+    "adminUserName": "[concat(parameters('prefix'), 'user')]"
   },
   "resources": [
  {
