@@ -1,5 +1,5 @@
 #and edit file permissions to allow execution, wihtout the need to install a conversion utility. Fixes issue #5.sh
-#wget -qO- "https://raw.githubusercontent.com/elitemn/HyperledgerFabricTestBuild/refs/heads/main/installFabric.sh" | tr -d '\r' > installFabric.sh
+#wget -qO- "https://raw.githubusercontent.com/elitemn/HyperledgerFabricTestBuild/refs/heads/main/installFabric.sh" | tr -d '\r' > installFabric.sh & chmod +x installFabric.sh
 
 # Update package list and install prerequisites
 #sudo -s
