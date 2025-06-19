@@ -5,14 +5,20 @@
 #wget -qO- "https://raw.githubusercontent.com/elitemn/HyperledgerFabricTestBuild/refs/heads/main/installFabric.sh" | tr -d '\r' > installFabric.sh
 
 # Update package list and install prerequisites
-sudo apt-get update -y
-sudo apt-get upgrade -y
-sudo apt-get install git -y
+sudo -s
+export DEBIAN_FRONTEND=noninteractive
+apt-get update -y
+apt-get upgrade -y
 
 #Install Docker
-sudo apt-get -y install docker-compose
+apt-get -y install docker-compose
+
+# Install jq
+apt-get install -y jq
+
 
 #Add user to docker group and apply newgroup for session
+exit
 sudo usermod -aG docker $(whoami)
 newgrp docker
 
@@ -22,9 +28,6 @@ sudo systemctl start docker
 #Autostart Docker
 sudo systemctl enable docker
 
-# Install jq
-sudo apt-get install -y jq
-
 # Install Go
 GO_VERSION="1.24.4"
 wget https://golang.org/dl/go${GO_VERSION}.linux-amd64.tar.gz
@@ -33,9 +36,9 @@ echo "export PATH=\$PATH:/usr/local/go/bin" >> ~/.profile
 source ~/.profile
 
 # Verify installations
-docker --version
-jq --version
-go version
+docker --version >> versions.txt
+jq --version >> versions.txt
+go version >> versions.txt
 
 # Install Hyperledger Fabric test network
 mkdir -p $HOME/go/src/github.com/$(whoami)
