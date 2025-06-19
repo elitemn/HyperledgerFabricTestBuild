@@ -18,7 +18,7 @@ sudo -E apt-get install -y jq
 
 #Add user to docker group and apply newgroup for session
 sudo usermod -aG docker $(whoami)
-newgrp docker
+#newgrp docker
 
 #Start Docker
 sudo systemctl start docker
