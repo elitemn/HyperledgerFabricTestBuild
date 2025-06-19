@@ -1,24 +1,22 @@
-#!/bin/bash
-
-#Download this file to endpoint using the following commands, this will parse and remove windows line endings (^M):
-#and edit file permissions to allow execution, wihtout the need to install a conversion utility. Fixes issue #5
+#and edit file permissions to allow execution, wihtout the need to install a conversion utility. Fixes issue #5.sh
 #wget -qO- "https://raw.githubusercontent.com/elitemn/HyperledgerFabricTestBuild/refs/heads/main/installFabric.sh" | tr -d '\r' > installFabric.sh
 
 # Update package list and install prerequisites
-sudo -s
+#sudo -s
 export DEBIAN_FRONTEND=noninteractive
-apt-get update -y
-apt-get upgrade -y
+export NEEDRESTART_MODE=a
+sudo -E apt-get update -y
+sudo -E apt-get upgrade -y
+sudo -E apt-get -y dist-upgrade
 
 #Install Docker
-apt-get -y install docker-compose
+sudo -E apt-get -y install docker-compose
 
 # Install jq
-apt-get install -y jq
+sudo -E apt-get install -y jq
 
 
 #Add user to docker group and apply newgroup for session
-exit
 sudo usermod -aG docker $(whoami)
 newgrp docker
 
