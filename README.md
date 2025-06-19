@@ -1,5 +1,5 @@
 This repostory consists of an Azure ARM template that will create a Linux VM (Umbuntu 22.04) and the a script will 
-1. Install Hyperledger Prereqs, (go, jq, docker compase)
+1. Install Hyperledger Prereqs, (go, jq, docker compose)
 2. Download and install the Hyperledger Fabric test network in a lab environment
 
 Fist deploy the VM using the ARM template
