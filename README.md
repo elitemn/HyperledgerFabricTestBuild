@@ -5,7 +5,8 @@ This repostory consists of an Azure ARM template that will create a Linux VM (Um
 Fist deploy the VM using the ARM template
 Then login to the newly created VM, download the InstallFabric.sh using the following command:
 wget -qO- "https://raw.githubusercontent.com/elitemn/HyperledgerFabricTestBuild/refs/heads/main/installFabric.sh" | tr -d '\r' > installFabric.sh & chmod +x installFabric.sh
-then run the downloaded she script:
+
+then run the downloaded script:
 ./installFabric.sh
 
 After the script finishes and the VM is restarted, install is complete.
